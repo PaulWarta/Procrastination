@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procratsinator Calender</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+    </div>
+<script>
+    let age = 80;
+    let living_weeks = age * 52;
+    let birthday = new Date(2001, 7, 21);
+    let now = new Date();
+    let weeks_passed = (now.getTime() - birthday.getTime()) / (1000 * 60 * 60 * 24 * 7)
+    let currElement;
+    let child;
+    let parent1 = document.getElementById("container");
+    for (i = 0; i < living_weeks; i++) {
+        child = document.createElement("div"); child.setAttribute("class", "element"); child.setAttribute("id", "week" + i); parent1.appendChild(child)
+        if (i == living_weeks - 1) {fillBoxes()};
+    }
+    function fillBoxes() {
+        for (j = 0; j < weeks_passed; j++) {
+            document.getElementById("week" + j).style.background = "black";
+            console.log("Executed");
+        }
+    }
+</script>
+</body>
+</html>
+        
+           
+                

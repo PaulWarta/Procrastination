@@ -1,0 +1,24 @@
+html {
+  background: rgba(0, 0, 0, 0);
+}
+
+body {
+  background: rgba(0, 0, 0, 0);
+}
+
+#container {
+  width: 940px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.element {
+  width: 6px;
+  height: 6px;
+  margin: 1.5px;
+  border: 1px solid black;
+}
+
+/*# sourceMappingURL=style.css.map */
