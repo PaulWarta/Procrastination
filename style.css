@@ -6,8 +6,21 @@ body {
   background: rgba(0, 0, 0, 0);
 }
 
+#birthday_label {
+  display: none;
+  position: relative;
+  top: 20px;
+  font-size: 1rem;
+  font-family: sans-serif;
+  flex-direction: column;
+}
+
+#birthday_input {
+  margin-top: 10px;
+}
+
 #container {
-  width: 940px;
+  width: 520px;
   margin: 0;
   padding: 0;
   display: flex;
@@ -17,8 +30,23 @@ body {
 .element {
   width: 6px;
   height: 6px;
-  margin: 1.5px;
+  margin: 2px;
   border: 1px solid black;
+  box-sizing: border-box;
 }
 
-/*# sourceMappingURL=style.css.map */
+#age_input {
+  margin-top: 10px;
+}
+
+#reset {
+  position: relative;
+  font-size: 1rem;
+  font-family: sans-serif;
+  top: 50px;
+  height: 30px; 
+  width: 120px; 
+  background-color: rgb(50, 124, 252); 
+  border: none; 
+  border-radius: 4px;
+}

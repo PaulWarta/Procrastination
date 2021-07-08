@@ -10,28 +10,49 @@
 <body>
     <div id="container">
     </div>
+    <label for="birthday_input" id="birthday_label">Geburtsdatum
+        <input id= "birthday_input" type="date">
+        <input type="number" id="age_input">
+        <button type="submit" style="margin-top: 10px; height: 30px; width: 70px; background-color: rgb(50, 124, 252); border: none; border-radius: 4px;" onclick=submit()>Submit</button>
+    </label>
+    <button id="reset" onclick=reset()>Reset values</button>
 <script>
-    let age = 80;
-    let living_weeks = age * 52;
-    let birthday = new Date(2001, 7, 21);
-    let now = new Date();
-    let weeks_passed = (now.getTime() - birthday.getTime()) / (1000 * 60 * 60 * 24 * 7)
+    let birthday_inp;
+    let weeks_passed;
     let currElement;
     let child;
     let parent1 = document.getElementById("container");
-    for (i = 0; i < living_weeks; i++) {
-        child = document.createElement("div"); child.setAttribute("class", "element"); child.setAttribute("id", "week" + i); parent1.appendChild(child)
-        if (i == living_weeks - 1) {fillBoxes()};
+    function calculate_boxes(age, birthday_inp) {
+        let living_weeks = age * 52;
+        let birthday = new Date(birthday_inp);
+        let now = new Date();
+        weeks_passed = (now.getTime() - birthday.getTime()) / (1000 * 60 * 60 * 24 * 7)
+        for (i = 0; i < living_weeks; i++) {
+            child = document.createElement("div"); child.setAttribute("class", "element"); child.setAttribute("id", "week" + i); parent1.appendChild(child)
+        }
     }
     function fillBoxes() {
         for (j = 0; j < weeks_passed; j++) {
             document.getElementById("week" + j).style.background = "black";
-            console.log("Executed");
         }
     }
-</script>
+    function reset() {document.getElementById("birthday_label").style.display = "flex"; document.getElementById("reset").style.display = "none"}
+    let input = document.getElementById("birthday_input");
+    let estAge = document.getElementById("age_input");
+    let storage = window.localStorage;
+    if (storage.length == 0) {
+        document.getElementById("birthday_label").style.display = "flex";
+    } else {
+        calculate_boxes(window.localStorage.getItem("age_key"), window.localStorage.getItem("birthday_key"))
+        fillBoxes();
+    }
+    function submit () {
+        window.localStorage.setItem("birthday_key", input.value);
+        window.localStorage.setItem("age_key", estAge.value);
+        calculate_boxes(estAge.value, input.value);
+        fillBoxes();
+        document.getElementById("birthday_label").style.display = "none";
+    }
+    </script>
 </body>
 </html>
-        
-           
-                
