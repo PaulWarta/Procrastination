@@ -36,6 +36,11 @@
             document.getElementById("week" + j).style.background = "black";
         }
     }
+    function removeOld () {
+        let parent2 = document.getElementById("container");
+        let list_length = parent2.childNodes.length;
+        for (i = 0; i < list_length; i++) {parent2.firstChild.remove();}
+    }
     function reset() {document.getElementById("birthday_label").style.display = "flex"; document.getElementById("reset").style.display = "none"}
     let input = document.getElementById("birthday_input");
     let estAge = document.getElementById("age_input");
@@ -43,12 +48,14 @@
     if (storage.length == 0) {
         document.getElementById("birthday_label").style.display = "flex";
     } else {
-        calculate_boxes(window.localStorage.getItem("age_key"), window.localStorage.getItem("birthday_key"))
+        removeOld();
+        calculate_boxes(window.localStorage.getItem("age_key"), window.localStorage.getItem("birthday_key"));
         fillBoxes();
     }
     function submit () {
         window.localStorage.setItem("birthday_key", input.value);
         window.localStorage.setItem("age_key", estAge.value);
+        removeOld();
         calculate_boxes(estAge.value, input.value);
         fillBoxes();
         document.getElementById("birthday_label").style.display = "none";
