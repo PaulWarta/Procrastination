@@ -1,52 +1,105 @@
+* {
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
 html {
-  background: rgba(0, 0, 0, 0);
+  height: 100%;
 }
 
 body {
-  background: rgba(0, 0, 0, 0);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #birthday_label {
   display: none;
-  position: relative;
-  top: 20px;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-family: sans-serif;
   flex-direction: column;
 }
 
 #birthday_input {
-  margin-top: 10px;
-}
-
-#container {
-  width: 520px;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.element {
-  width: 6px;
-  height: 6px;
-  margin: 2px;
+  margin-top: 5px;
+  width: 153px;
   border: 1px solid black;
-  box-sizing: border-box;
+  border-radius: 2px;
 }
+
+@media screen and (min-width: 540px) {
+  #container {
+    width: 520px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #birthday_label {
+    width: 520px;
+    margin-top: 20px;
+  }
+
+  .element {
+    width: 6px;
+    height: 6px;
+    margin: 2px;
+    border: 1px solid black;
+    box-sizing: border-box;
+  }
+}
+
+
+@media screen and (max-width: 540px) {
+  #container {
+    width: 312px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #birthday_label {
+    width: 312px;
+    margin-top: 20px;
+  }
+
+  .element {
+    width: 4px;
+    height: 4px;
+    margin: 1px;
+    border: 1px solid black;
+    box-sizing: border-box;
+  }
+}
+
+
+
+
 
 #age_input {
+  margin-top: 5px;
+  height: 17px;
+  width: 150px;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+button {
   margin-top: 10px;
+  font-size: 1.2rem;
+  height: 42px; 
+  width: 115px; 
+  background-color: rgb(50, 124, 252); 
+  border: none; 
+  border-radius: 4px;
 }
 
 #reset {
   position: relative;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-family: sans-serif;
   top: 50px;
-  height: 30px; 
-  width: 120px; 
-  background-color: rgb(50, 124, 252); 
-  border: none; 
-  border-radius: 4px;
 }
